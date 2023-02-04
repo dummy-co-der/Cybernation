@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="image.png" width="900"/>  
+  <img src="image.jpg" width="700"/>  
 
   ![Language](https://img.shields.io/badge/Language-Python-red.svg)
   ![System](https://img.shields.io/badge/System-Windows-blueviolet)
