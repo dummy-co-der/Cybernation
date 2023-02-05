@@ -17,6 +17,7 @@ Message = df["Message"].tolist()
 for x, y in zip(Name, Message):
     Search = driver.find_elements(By.XPATH, '//*[@id="telegram-search-input"]')
     time.sleep(2)
+    # Username - string sensitive
     Search[0].send_keys(x)
     time.sleep(1)
     Search[0].send_keys(Keys.ENTER)
