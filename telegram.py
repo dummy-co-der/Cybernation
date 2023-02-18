@@ -40,11 +40,14 @@ for x, y in zip(Name, Message):
     # time.sleep(10)
     # print(logout)
 
-    # i = i+1  //*[@id="Settings"]/div[1]/div[1]/div/div/button/div  //*[@id="Settings"]/div[1]/div[1]/div/div/button/div
+    # i = i+1  
+    # //*[@id="Settings"]/div[1]/div[1]/div/div/button/div  
+    # //*[@id="Settings"]/div[1]/div[1]/div/div/button/div
 # print(Search)
 
 driver.close()
 
-# //*[@id="telegram-search-input"]   //*[@id="Settings"]/div[1]/div[1]/div/div/button
+# //*[@id="telegram-search-input"]   
+# //*[@id="Settings"]/div[1]/div[1]/div/div/button
 # //*[@id="LeftMainHeader"]/div[1]/button
 # //*[@id="Settings"]/div[1]/div[1]/div/div/button/div
