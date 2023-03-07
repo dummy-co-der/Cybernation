@@ -1,28 +1,84 @@
 from selenium import webdriver
+import os
+import pandas as pd
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.keys import Keys
-import os
-import pandas as pd
 
 os.environ['PATH'] += "E:"
 driver = webdriver.Chrome()
-driver.get('https://www.instagram.com/')
-time.sleep(50)
-# df = pd.read_csv("workbook.csv")
-# Name = df["Name"].tolist()
-# Message = df["Message"].tolist()
-# for x, y in zip(Name, Message):
-Search = driver.find_elements(By.XPATH, '')
-time.sleep(2)
-# Username - string sensitive
-# Search[0].send_keys(x)
-# time.sleep(1)
-# Search[0].send_keys(Keys.ENTER)
-# # time.sleep(3)
-# message = driver.find_elements(By.XPATH, '')
-#     message[0].send_keys(y)
-#     message[0].send_keys(Keys.ENTER)
-#     time.sleep(4)
+user = ['SENDER USERNAME']
+message_ = ("Hello, This is Cybernation, how can I help you?")
+
+class bot:
+	def __init__(self, username, password, user, message):
+		self.username = username
+		self.password = password
+		self.user = user
+		self.message = message
+		self.base_url = 'https://www.instagram.com/'
+		self.bot = driver
+		self.login()
+
+	def login(self):
+		self.bot.get(self.base_url)
+		enter_username = WebDriverWait(self.bot, 20).until(
+			expected_conditions.presence_of_element_located((By.NAME, 'username')))
+		enter_username.send_keys(self.username)
+		enter_password = WebDriverWait(self.bot, 20).until(
+			expected_conditions.presence_of_element_located((By.NAME, 'password')))
+		enter_password.send_keys(self.password)
+		enter_password.send_keys(Keys.RETURN)
+		time.sleep(5)
+
+		# first pop-up
+		self.bot.find_element(By.XPATH,
+							'/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div/div/div/div/button').click()
+		time.sleep(5)
+		# 2nd pop-up
+		self.bot.find_element(By.XPATH,
+							'/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]').click()
+		time.sleep(5)
+		# direct button
+		self.bot.find_element(By.XPATH,
+							'/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/a').click()
+		time.sleep(15)
+
+		# clicks on pencil icon
+		self.bot.find_element(By.XPATH,
+							'/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[1]/div[1]/div/div[3]').click()
+		time.sleep(4)
+		for i in user:
+			# enter the username
+			self.bot.find_element(By.XPATH,
+								'/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[2]/input').send_keys(i)
+			time.sleep(3)
+			# click on the username
+			self.bot.find_element(By.XPATH,
+								'/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[2]/div').click()
+			time.sleep(4)
+			# next button
+			self.bot.find_element(By.XPATH,
+								'/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[3]/div/button/div').click()
+			time.sleep(4)
+			# click on message area
+			send = self.bot.find_element(By.XPATH,
+										'/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
+			# types message
+			send.send_keys(self.message)
+			time.sleep(1)
+
+			# send message
+			send.send_keys(Keys.RETURN)
+			time.sleep(2)
+			
+			# clicks on direct option or send icon
+			self.bot.find_element(By.XPATH,
+								'/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[3]/button').click()
+			time.sleep(6)
+
+def init():
+	bot('USERNAME', 'PASSWORD', user, message_)
+init()
