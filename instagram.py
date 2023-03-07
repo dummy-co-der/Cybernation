@@ -57,7 +57,7 @@ class bot:
 			time.sleep(3)
 			# click on the username
 			self.bot.find_element(By.XPATH,
-								'/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[2]/div').click()
+								'/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[1]/div').click()
 			time.sleep(4)
 			# next button
 			self.bot.find_element(By.XPATH,
