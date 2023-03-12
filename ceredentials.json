@@ -1,0 +1,27 @@
+{
+	"ceredentials" : [
+		{
+			"gmail" : "EMAIL ID",
+			"username" : "USERNAME",
+			"password" : "PASSWORD"
+		}
+	], 
+	"messages" :[
+		{
+			"sender_id" : "SENDER USERNAME 1",
+			"message" :"This is Cybernation, how can I help you?" 
+		},
+		{
+			"sender_id" : "SENDER USERNAME 2",
+			"message" :"This is Cybernation, how can I help you?" 
+		},
+		{
+			"sender_id" : "SENDER USERNAME 3",
+			"message" :"This is Cybernation, how can I help you?" 
+		},
+		{
+			"sender_id" : "SENDER USERNAME 4",
+			"message" :"This is Cybernation, how can I help you?" 
+		}
+	]
+}

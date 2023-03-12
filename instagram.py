@@ -80,5 +80,5 @@ class bot:
 			time.sleep(6)
 
 def init():
-	bot('USERNAME', 'PASSWORD', user, message_)
+	bot('kakuanuj@ymail.com', 'An@100102', user, message_)
 init()
